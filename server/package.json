@@ -1,0 +1,19 @@
+{
+  "name": "attendance-manager",
+  "version": "1.0.0",
+  "description": "A full stack attendance management system.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Tanishq Chamola",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.23"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
