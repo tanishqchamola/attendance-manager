@@ -34,28 +34,13 @@
               <td>{{rollNumber}}</td>
               <td>{{name}}</td>
               <td>
-                <input
-                  type="radio"
-                  v-model="val[rollNumber]"
-                  :name="rollNumber"
-                  value="P"
-                />
+                <input type="radio" v-model="val[rollNumber]" :name="rollNumber" value="P" />
               </td>
               <td>
-                <input
-                  type="radio"
-                  v-model="val[rollNumber]"
-                  :name="rollNumber"
-                  value="A"
-                />
+                <input type="radio" v-model="val[rollNumber]" :name="rollNumber" value="A" />
               </td>
               <td>
-                <input
-                  type="radio"
-                  v-model="val[rollNumber]"
-                  :name="rollNumber"
-                  value="L"
-                />
+                <input type="radio" v-model="val[rollNumber]" :name="rollNumber" value="L" />
               </td>
             </tr>
           </tbody>
@@ -68,7 +53,7 @@
 <script>
 import Service from "@/service/index";
 export default {
-  name: "Mark",
+  name: "AttendanceUpload",
   data() {
     return {
       course: "",

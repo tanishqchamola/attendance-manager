@@ -1,24 +1,24 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Dashboard from "@/views/Dashboard";
-import Mark from "@/views/Mark"
+import AttendanceView from "@/views/AttendanceView";
+import AttendanceUpload from "@/views/AttendanceUpload"
 
 Vue.use(VueRouter);
 
 const routes = [
     {
         path: "/",
-        redirect: "/Mark",
+        redirect: "/AttendanceUpload",
     },
     {
-        path: "/Dashboard",
-        name: "Dashboard",
-        component: Dashboard,
+        path: "/AttendanceView",
+        name: "AttendanceView",
+        component: AttendanceView,
     },
     {
-        path: "/Mark",
-        name: "Mark",
-        component: Mark,
+        path: "/AttendanceUpload",
+        name: "AttendanceUpload",
+        component: AttendanceUpload,
     },
 ];
 
