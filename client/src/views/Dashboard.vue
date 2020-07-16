@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import Service from "../service/index";
+import Service from "@/service/index";
 export default {
   name: "Dashboard",
   data() {
@@ -51,7 +51,7 @@ export default {
       const data = await Service.getStudentProcessed("CO17359");
       this.rows = data;
     } catch (err) {
-      this.error = err.message;
+      throw err;
     }
   }
 };

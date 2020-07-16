@@ -8,7 +8,7 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/",
-        redirect: "/Dashboard",
+        redirect: "/Mark",
     },
     {
         path: "/Dashboard",

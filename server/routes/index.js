@@ -53,8 +53,8 @@ router.post("/student", (req, res) => {
     res.status(201).send();
 });
 
-//add new course
-router.post("/course", (req, res) => {
+//add new course -- may not be required
+router.post("/addCourse", (req, res) => {
     const courseId = "CSE-504";
     const title = "C++";
     const facultyId = "sarabjitsingh";
@@ -69,6 +69,22 @@ router.post("/course", (req, res) => {
         if (err) throw err;
         else {
             console.log("New course added.");
+        }
+    });
+});
+
+//get all students of the course
+router.get("/courseStudents", (req, res) => {
+    var query = Course.where({ courseId: req.query.course });
+
+    query.findOne((err, doc) => {
+        if (err) throw err;
+        if (doc) {
+            console.log(doc);
+            res.send(doc);
+        } else {
+            console.log("No such course found.");
+            res.send("No such course found.");
         }
     });
 });

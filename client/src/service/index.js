@@ -22,10 +22,10 @@ class Service {
     static getStudentProcessed(rollNumber) {
         return new Promise(async (resolve, reject) => {
             try {
-                const res = await axios.get(`${url}/data`,{
+                const res = await axios.get(`${url}/data`, {
                     params: {
                         rollNumber,
-                    }
+                    },
                 });
                 const data = res.data.attendance;
                 var response = [];
@@ -61,13 +61,33 @@ class Service {
                     info.absent = absent;
                     info.leave = leave;
 
-                    info.percentage = ((present/(info.lecture))*100).toFixed(2);
+                    info.percentage = ((present / info.lecture) * 100).toFixed(
+                        2
+                    );
 
-                    info.required = Math.ceil(((75*(info.lecture))-(100*present)) / (100-75))
+                    info.required = Math.ceil(
+                        (75 * info.lecture - 100 * present) / (100 - 75)
+                    );
 
                     response.push(info);
                 });
                 resolve(response);
+            } catch (err) {
+                reject(err);
+            }
+        });
+    }
+
+    static getCourseStudents(course) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const res = await axios.get(`${url}/courseStudents`, {
+                    params: {
+                        course,
+                    },
+                });
+                const data = res.data.students;
+                resolve(data);
             } catch (err) {
                 reject(err);
             }
