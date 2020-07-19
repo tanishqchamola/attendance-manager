@@ -1,6 +1,7 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <router-link class="navbar-brand" to="/Dashboard">web-manager</router-link>
       <button
         class="navbar-toggler"
         type="button"
@@ -14,7 +15,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mx-auto">
+        <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <router-link class="nav-link" to="/AttendanceView">Attendance</router-link>
           </li>
@@ -48,9 +49,16 @@
   </div>
 </template>
 
-<script>
-export default {};
-</script>
-
 <style scoped>
+.navbar{
+  padding: 20px 165px;
+}
+.navbar-brand {
+  font-size: 22px;
+  font-weight: 800;
+}
+.nav-link {
+  font-size: 16px !important;
+  color: #0D264C !important;
+}
 </style>

@@ -8,12 +8,27 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: "/",
-        redirect: "/AttendanceUpload",
+        redirect: "/AttendanceView",
     },
     {
         path: "/AttendanceView",
         name: "AttendanceView",
         component: AttendanceView,
+    },
+    {
+        path: "/ContentView",
+        name: "ContentView",
+        component: ContentView,
+    },
+    {
+        path: "/NotificationView",
+        name: "NotificationView",
+        component: NotificationView,
+    },
+    {
+        path: "/Dashboard",
+        name: "Dashboard",
+        component: Dashboard,
     },
     {
         path: "/AttendanceUpload",
