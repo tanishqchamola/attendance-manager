@@ -4,6 +4,7 @@ const router = express.Router();
 // models
 const Student = require("../models/Student");
 const Course = require("../models/Course");
+const { update } = require("../models/Student");
 
 //get all data in student collection
 router.get("/student", (req, res) => {
@@ -86,6 +87,65 @@ router.get("/courseStudents", (req, res) => {
             console.log("No such course found.");
             res.send("No such course found.");
         }
+    });
+});
+
+//mark attendance for all students in the given course
+router.post("/markAttendance", (req, res) => {
+    const { course, date, present, absent, leave } = req.body;
+
+    present.forEach((student) => {
+        var placeholder = {};
+        placeholder["attendance.$.record." + date] = "P";
+        Student.findOneAndUpdate(
+            {
+                rollNumber: student,
+                "attendance.courseId": course,
+            },
+            {
+                $set: placeholder,
+            },
+            (error) => {
+                if (error) throw error;
+                console.log(`${student}'s attendance updated!`);
+            }
+        );
+    });
+
+    absent.forEach((student) => {
+        var placeholder = {};
+        placeholder["attendance.$.record." + date] = "A";
+        Student.findOneAndUpdate(
+            {
+                rollNumber: student,
+                "attendance.courseId": course,
+            },
+            {
+                $set: placeholder,
+            },
+            (error) => {
+                if (error) throw error;
+                console.log(`${student}'s attendance updated!`);
+            }
+        );
+    });
+
+    leave.forEach((student) => {
+        var placeholder = {};
+        placeholder["attendance.$.record." + date] = "L";
+        Student.findOneAndUpdate(
+            {
+                rollNumber: student,
+                "attendance.courseId": course,
+            },
+            {
+                $set: placeholder,
+            },
+            (error) => {
+                if (error) throw error;
+                console.log(`${student}'s attendance updated!`);
+            }
+        );
     });
 });
 

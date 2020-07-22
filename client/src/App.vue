@@ -1,15 +1,16 @@
 <template>
-  <div id="app">
-    <Navbar />
-    <router-view class="container" />
-  </div>
+  <v-app>
+    <Layout />
+  </v-app>
 </template>
 
 <script>
-import Navbar from "@/components/Navbar";
+import Layout from "@/components/Layout";
+
 export default {
+  name: "App",
   components: {
-    Navbar
+    Layout
   }
 };
 </script>

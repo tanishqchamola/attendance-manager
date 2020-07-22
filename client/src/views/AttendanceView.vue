@@ -1,33 +1,4 @@
 <template>
-  <div>
-    <div class="row">
-      <div class="col-6">
-        <div class="my-card">
-          <h2>Name: Tanishq Chamola</h2>
-          <h2>Roll Number: CO17359</h2>
-        </div>
-      </div>
-      <div class="col-6">
-        <div class="my-card">
-          <div class="row">
-            <div class="col-6 m-auto">
-              <Chart v-bind:details="details" />
-            </div>
-            <div class="col-6">
-              <ul class="list-group">
-                <li
-                  v-for="{ courseId, title } in rows"
-                  @click="selectedChart = courseId"
-                  :key="courseId"
-                  :class="{active: selectedChart === courseId}"
-                  class="list-group-item"
-                >{{title}}</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="row">
       <div class="col-12">
         <h2>Lecture-wise Attendance</h2>
@@ -66,22 +37,16 @@
         </table>
       </div>
     </div>
-  </div>
 </template>
 
 <script>
 import Service from "@/service/index";
-import Chart from "@/components/Chart";
 export default {
   name: "AttendanceView",
-  components: {
-    Chart
-  },
   data() {
     return {
       name: "",
       selectedChart: "",
-      details: [],
       rollNumber: "",
       percentage: 0,
       required: 0,
@@ -94,16 +59,6 @@ export default {
       this.rows = data;
     } catch (err) {
       throw err;
-    }
-  },
-  watch: {
-    rows: function() {
-      this.selectedChart = this.rows[0].courseId;
-    },
-    selectedChart: function() {
-      this.details = this.rows.filter(
-        row => row.courseId == this.selectedChart
-      );
     }
   }
 };

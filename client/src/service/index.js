@@ -93,6 +93,17 @@ class Service {
             }
         });
     }
+
+    static markAttendance(course, date, present, absent, leave) {
+        console.log(course, date, present, absent, leave);
+        return axios.post(`${url}/markAttendance`, {
+            course,
+            date,
+            present,
+            absent,
+            leave,
+        });
+    }
 }
 
 export default Service;
