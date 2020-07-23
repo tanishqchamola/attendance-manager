@@ -78,6 +78,35 @@ class Service {
         });
     }
 
+    static getSubjectAttendance(rollNumber, courseId) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const res = await axios.get(`${url}/data`, {
+                    params: {
+                        rollNumber,
+                    },
+                });
+                const data = res.data.attendance;
+                const response = data.filter(
+                    (item) => item.courseId === courseId
+                );
+                const result = response[0].record;
+                const keys = Object.keys(result);
+                const values = Object.values(result);
+                var output = [];
+                for (let i = 0; i < keys.length; i++) {
+                    var item = {};
+                    item.date = keys[i];
+                    item.status = values[i];
+                    output.unshift(item);
+                }
+                resolve(output);
+            } catch (err) {
+                reject(err);
+            }
+        });
+    }
+
     static getCourseStudents(course) {
         return new Promise(async (resolve, reject) => {
             try {

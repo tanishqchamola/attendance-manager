@@ -21,7 +21,6 @@ export default {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #0d264c;
 }
 .container {
   margin-top: 150px;

@@ -3,14 +3,14 @@ import VueRouter from "vue-router";
 import AttendanceView from "@/views/AttendanceView";
 import AttendanceUpload from "@/views/AttendanceUpload";
 import Dashboard from "@/views/Dashboard";
-import Notices from "@/views/Notices"
+import Notices from "@/views/Notices";
 
 Vue.use(VueRouter);
 
 const routes = [
     {
         path: "/",
-        redirect: "/Dashboard"
+        redirect: "/Dashboard",
     },
     {
         path: "/AttendanceView",
