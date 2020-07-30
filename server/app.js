@@ -1,8 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const passport = require("passport");
 
 const app = express();
+
+require("./config/passport")(passport);
 
 const db = require("./config/key").MongoURI;
 
@@ -19,6 +22,10 @@ app.use(
         extended: false,
     })
 );
+
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(express.json());
 

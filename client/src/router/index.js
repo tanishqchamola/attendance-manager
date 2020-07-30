@@ -3,7 +3,8 @@ import VueRouter from "vue-router";
 import AttendanceView from "@/views/AttendanceView";
 import AttendanceUpload from "@/views/AttendanceUpload";
 import Dashboard from "@/views/Dashboard";
-import Notices from "@/views/Notices";
+import NoticesUpload from "@/views/NoticesUpload";
+import Login from "@/views/Login";
 
 Vue.use(VueRouter);
 
@@ -28,9 +29,14 @@ const routes = [
         component: AttendanceUpload,
     },
     {
-        path: "/Notices",
-        name: "Notices",
-        component: Notices,
+        path: "/NoticesUpload",
+        name: "NoticesUpload",
+        component: NoticesUpload,
+    },
+    {
+        path: "/Login",
+        name: "Login",
+        component: Login,
     },
 ];
 

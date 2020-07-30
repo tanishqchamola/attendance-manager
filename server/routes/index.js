@@ -1,4 +1,5 @@
 const express = require("express");
+const passport = require("passport");
 const router = express.Router();
 
 // models
@@ -147,6 +148,31 @@ router.post("/markAttendance", (req, res) => {
             }
         );
     });
+});
+
+//Google O-Auth
+router.get(
+    "/auth/google",
+    passport.authenticate("google", {
+        scope: ["profile", "email"],
+    })
+);
+
+//google o-auth redirect
+router.get(
+    "/auth/google/redirect",
+    passport.authenticate("google"),
+    (req, res) => {
+        var id = encodeURIComponent(req.user);
+        //console.log(req.user); //this is the unique user id which each google account has
+        res.redirect(`http://localhost:8080/#/Dashboard?id=${id}`);
+    }
+);
+
+//logout route
+router.get("/auth/logout", (req, res) => {
+    req.logout();
+    res.send(req.user);
 });
 
 module.exports = router;

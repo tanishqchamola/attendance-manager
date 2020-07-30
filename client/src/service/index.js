@@ -133,6 +133,20 @@ class Service {
             leave,
         });
     }
+
+    static authenticateUser() {
+        // return new Promise(async (resolve, reject) => {
+        //     try {
+        //         const res = await axios.get(`${url}/auth/google`);
+        //         const data = res.data;
+        //         console.log(res.data);
+        //         resolve(data);
+        //     } catch (err) {
+        //         reject(err);
+        //     }
+        // });
+        return axios.get(`${url}/auth/google`);
+    }
 }
 
 export default Service;
